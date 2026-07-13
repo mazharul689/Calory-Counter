@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+
+
+{% block body %}
+
+<h2>{{ title }}</h2>
+
+<div class="row">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary my-2" value="{{ btn }}"><br>
+        {{ a_t }}
+        {% if request.path == '/' %}
+            <a href="{% url 'register' %}">{{ a_b }}</a>
+        {% elif request.path == '/register/' %}
+            <a href="{% url 'login' %}">{{ a_b }}</a>
+        {% endif %}
+            
+    </form>
+</div>
+    
+{% endblock body %}
+    
